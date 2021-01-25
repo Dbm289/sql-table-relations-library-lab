@@ -1,14 +1,14 @@
 def select_books_titles_and_years_in_first_series_order_by_year
-  "SELECT title, year FROM books JOIN series ON series_id = books.series_id WHERE series.id = 1 ORDER BY books.year;"
+  "SELECT title, year FROM books WHERE series_id = 1 ORDER BY books.year;"
 end
 
 def select_name_and_motto_of_char_with_longest_motto
-  "SELECT TOP 1 characters.name, TOP 1 characters.motto FROM characters ORDER BY len(characters.motto) DESC ;"
+  "SELECT name, motto FROM characters ORDER BY motto LIMIT 1;"
 end
 
 
 def select_value_and_count_of_most_prolific_species
-  "SELECT "
+  "SELECT TOP species, COUNT(species) FROM characters ORDER BY COUNT(species) LIMIT 1;"
 end
 
 def select_name_and_series_subgenres_of_authors
